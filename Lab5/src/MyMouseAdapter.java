@@ -89,7 +89,7 @@ public class MyMouseAdapter extends MouseAdapter {
 							/////////////////
 							//LEFT Grey Line
 							/////////////////
-							if ((gridX == 0) || (gridY < 0)){
+							if ((gridX < 1) || (gridY < 0)){
 								for (int i=1; i <10; i++ ){
 									Color newColor = null;						
 									switch (generator.nextInt(5)) {
@@ -124,7 +124,7 @@ public class MyMouseAdapter extends MouseAdapter {
 							/////////////////
 							//TOP Grey Line
 							/////////////////
-							else if ((gridX < 0) || (gridY == 0)){
+							else if ((gridX < 0) || (gridY < 1)){
 									for (int i=1; i <10; i++ ){
 										Color newColor = null;
 										switch (generator.nextInt(5)) {
@@ -188,7 +188,34 @@ public class MyMouseAdapter extends MouseAdapter {
 							
 							
 							
-							else if ((gridX == 0) || (gridY == 0)){
+//							else if ((gridX == 0) || (gridY == 0)){
+//								int stepp = 0;
+//								for (int i=1; i <10; i++ ){
+//									Color newColor = null;
+//									switch (generator.nextInt(5)) {
+//									case 0:
+//										newColor = Color.YELLOW;
+//										break;
+//									case 1:
+//										newColor = Color.MAGENTA;
+//										break;
+//									case 2:
+//										newColor = Color.BLACK;
+//										break;
+//									case 3:
+//										newColor = new Color(0x964B00);   //Brown (from http://simple.wikipedia.org/wiki/List_of_colors)
+//										break;
+//									case 4:
+//										newColor = new Color(0xB57EDC);   //Lavender (from http://simple.wikipedia.org/wiki/List_of_colors)
+//										break;
+//									}
+//									myPanel.colorArray[(i+1)+stepp][i+1] = newColor;
+//									myPanel.repaint();
+//									stepp += 1;
+//								}
+//							}
+				
+							else {
 								int stepp = 0;
 								for (int i=1; i <10; i++ ){
 									Color newColor = null;
@@ -214,8 +241,6 @@ public class MyMouseAdapter extends MouseAdapter {
 									stepp += 1;
 								}
 							}
-				
-
 							
 									
 									
