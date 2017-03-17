@@ -89,7 +89,7 @@ public class MyMouseAdapter extends MouseAdapter {
 							/////////////////
 							//LEFT Grey Line
 							/////////////////
-							if ((gridX < 1) || (gridY < 0)){
+							if ((gridX == 0) && (gridY != 0 && gridY != 10)){
 								for (int i=1; i <10; i++ ){
 									Color newColor = null;						
 									switch (generator.nextInt(5)) {
@@ -109,13 +109,7 @@ public class MyMouseAdapter extends MouseAdapter {
 										newColor = new Color(0xB57EDC);   //Lavender (from http://simple.wikipedia.org/wiki/List_of_colors)
 										break;
 									}
-									myPanel.colorArray[i][myPanel.mouseDownGridY] = newColor;
-									myPanel.repaint();
-									
-									
-									//Repaint Grey... Band-aid solution, but a solution nonetheless.
-									newColor = Color.LIGHT_GRAY;
-									myPanel.colorArray[i][0] = newColor;
+									myPanel.colorArray[i][gridY] = newColor;
 									myPanel.repaint();
 								}
 							}
@@ -124,7 +118,7 @@ public class MyMouseAdapter extends MouseAdapter {
 							/////////////////
 							//TOP Grey Line
 							/////////////////
-							else if ((gridX < 0) || (gridY < 1)){
+							else if ((gridX != 0) && gridY == 0){
 									for (int i=1; i <10; i++ ){
 										Color newColor = null;
 										switch (generator.nextInt(5)) {
@@ -144,81 +138,17 @@ public class MyMouseAdapter extends MouseAdapter {
 											newColor = new Color(0xB57EDC);   //Lavender (from http://simple.wikipedia.org/wiki/List_of_colors)
 											break;
 										}
-										myPanel.colorArray[myPanel.mouseDownGridX][i] = newColor;
-										myPanel.repaint();
-										
-										//Repaint Grey... Band-aid solution, but a solution nonetheless.
-										newColor = Color.LIGHT_GRAY;
-										myPanel.colorArray[0][i] = newColor;
+										myPanel.colorArray[gridX][i] = newColor;
 										myPanel.repaint();
 									}
 								}							
 							
 							
-							///////////////////////
-							//TOP Corner Grey Block
-							///////////////////////
-//							else if ((gridX == 0) || (gridY == 0)){
-//									for (int i=1; i <10; i++ ){
-//										Color newColor = null;
-//										int stepp = 0;
-//										switch (generator.nextInt(5)) {
-//										case 0:
-//											newColor = Color.YELLOW;
-//											break;
-//										case 1:
-//											newColor = Color.MAGENTA;
-//											break;
-//										case 2:
-//											newColor = Color.BLACK;
-//											break;
-//										case 3:
-//											newColor = new Color(0x964B00);   //Brown (from http://simple.wikipedia.org/wiki/List_of_colors)
-//											break;
-//										case 4:
-//											newColor = new Color(0xB57EDC);   //Lavender (from http://simple.wikipedia.org/wiki/List_of_colors)
-//											break;
-//										}
-//										myPanel.colorArray[i+stepp][i+1] = newColor;
-//										myPanel.repaint();
-//										stepp += 1;
-//									}
-//								}
-							
-							
-							
-							
-//							else if ((gridX == 0) || (gridY == 0)){
-//								int stepp = 0;
-//								for (int i=1; i <10; i++ ){
-//									Color newColor = null;
-//									switch (generator.nextInt(5)) {
-//									case 0:
-//										newColor = Color.YELLOW;
-//										break;
-//									case 1:
-//										newColor = Color.MAGENTA;
-//										break;
-//									case 2:
-//										newColor = Color.BLACK;
-//										break;
-//									case 3:
-//										newColor = new Color(0x964B00);   //Brown (from http://simple.wikipedia.org/wiki/List_of_colors)
-//										break;
-//									case 4:
-//										newColor = new Color(0xB57EDC);   //Lavender (from http://simple.wikipedia.org/wiki/List_of_colors)
-//										break;
-//									}
-//									myPanel.colorArray[(i+1)+stepp][i+1] = newColor;
-//									myPanel.repaint();
-//									stepp += 1;
-//								}
-//							}
-				
-							else {
-								int stepp = 0;
-								for (int i=1; i <10; i++ ){
+							else if (gridX == 0 && gridY == 10){
+								for (int i=4; i <=6; i++ ){
+									for (int j = 4; j <= 6; j++){
 									Color newColor = null;
+									
 									switch (generator.nextInt(5)) {
 									case 0:
 										newColor = Color.YELLOW;
@@ -236,16 +166,42 @@ public class MyMouseAdapter extends MouseAdapter {
 										newColor = new Color(0xB57EDC);   //Lavender (from http://simple.wikipedia.org/wiki/List_of_colors)
 										break;
 									}
-									myPanel.colorArray[(i+1)+stepp][i+1] = newColor;
+									myPanel.colorArray[i][j] = newColor;
 									myPanel.repaint();
-									stepp += 1;
+									
 								}
 							}
-							
+							}	
+				
+
 									
 									
 
-							
+							else {
+								for (int i = 1; i < 10; i++){
+									Color newColor = null;
+									
+									switch (generator.nextInt(5)) {
+									case 0:
+										newColor = Color.YELLOW;
+										break;
+									case 1:
+										newColor = Color.MAGENTA;
+										break;
+									case 2:
+										newColor = Color.BLACK;
+										break;
+									case 3:
+										newColor = new Color(0x964B00);   //Brown (from http://simple.wikipedia.org/wiki/List_of_colors)
+										break;
+									case 4:
+										newColor = new Color(0xB57EDC);   //Lavender (from http://simple.wikipedia.org/wiki/List_of_colors)
+										break;
+									}
+									myPanel.colorArray[i][i] = newColor;
+									myPanel.repaint();
+								}
+							}
 							
 							
 							
@@ -317,7 +273,51 @@ public class MyMouseAdapter extends MouseAdapter {
 			myPanel.repaint();
 			break;
 		case 3:		//Right mouse button
-			//Do nothing
+////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////
 			break;
 		default:    //Some other button (2 = Middle mouse button, etc.)
 			//Do nothing
