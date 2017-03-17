@@ -144,6 +144,9 @@ public class MyMouseAdapter extends MouseAdapter {
 								}							
 							
 							
+							/////////////////
+							//Bottom Grey Cube
+							/////////////////
 							else if (gridX == 0 && gridY == 10){
 								for (int i=4; i <=6; i++ ){
 									for (int j = 4; j <= 6; j++){
@@ -176,7 +179,9 @@ public class MyMouseAdapter extends MouseAdapter {
 
 									
 									
-
+							/////////////////
+							//Corner Grey Cube
+							/////////////////
 							else {
 								for (int i = 1; i < 10; i++){
 									Color newColor = null;
@@ -277,44 +282,75 @@ public class MyMouseAdapter extends MouseAdapter {
 ////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
+			Component c2 = e.getComponent();
+			while (!(c2 instanceof JFrame)) {
+				c2 = c2.getParent();
+				if (c2 == null) {
+					return;
+				}
+			}
+			JFrame myFrame2 = (JFrame)c2;
+			MyPanel myPanel2 = (MyPanel) myFrame2.getContentPane().getComponent(0);  //Can also loop among components to find MyPanel
+			Insets myInsets2 = myFrame2.getInsets();
+			int x12 = myInsets2.left;
+			int y12 = myInsets2.top;
+			e.translatePoint(-x12, -y12);
+			int x2 = e.getX();
+			int y2 = e.getY();
+			myPanel2.x = x2;
+			myPanel2.y = y2;
+			int gridX2 = myPanel2.getGridX(x2, y2);
+			int gridY2 = myPanel2.getGridY(x2, y2);
+			
+			if (gridX2< 0 && gridY2 <0){
+				
+				
+				int secondrandomNumber = generator.nextInt(3);
+				
+				Color lastcolor = myPanel2.colorArray[0][0];
+				
+				Color newColor = null;
+				
+				switch (secondrandomNumber) {
+				case 0:
+					if (myPanel2.colorArray[0][0].equals(lastcolor)){
+						newColor = new Color(0x00A86B);
+						break;
+					}
+					newColor = new Color(0x92000A);//
+					break;
+				case 1:
+					if (myPanel2.colorArray[0][0].equals(lastcolor)){
+						newColor = new Color(0x92000A);
+						break;
+					}
+					newColor = new Color(0x4B0082);//
+					break;
+				case 2:
+					if (myPanel2.colorArray[0][0].equals(lastcolor)){
+						newColor = new Color(0x4B0082);
+						break;
+					}
+					newColor = new Color(0x00A86B);
+					break;
+				}
+				
+				for (int i = 0; i < 10; i++) {
+					
+					myPanel2.colorArray[i][0] = newColor;
+				
+				}
+				myPanel2.repaint();
+				
+				for (int j = 0; j < 11; j++) {
+					
+					myPanel2.colorArray[0][j] = newColor;
+				}
+				myPanel2.repaint();
+}
 			
 			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
+		
 ////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////
